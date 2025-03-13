@@ -1,3 +1,21 @@
+# FROM MATT...
+first get your venv right!
+```
+python -m venv venv
+venv\Scripts\activate     # On Windows
+```
+install dependencies from setup.py
+```
+pip install -e .
+```
+
+
+
+
+
+
+
+
 # A Time-Based Regression Matched Markets Approach for Designing Geo Experiments
 
 Copyright (C) 2020 Google LLC. License: Apache 2.0
