@@ -256,13 +256,12 @@ def default_geo_assignment(geo_level_time_series: pd.DataFrame,
   missing_geos = list(
       set(geo_level_time_series['geo']) - set(geo_eligibility['geo']))
 
-  return geo_eligibility.append(
-      pd.DataFrame({
-          'geo': missing_geos,
-          'control': 1,
-          'treatment': 1,
-          'exclude': 1
-      })).sort_values(by='geo').reset_index(drop=True)
+  pd.concat([geo_eligibility, pd.DataFrame({
+      'geo': missing_geos,
+      'control': 1,
+      'treatment': 1,
+      'exclude': 1
+  })], ignore_index=True).sort_values(by='geo').reset_index(drop=True)
 
 
 def plot_iroas_over_time(iroas_df: pd.DataFrame, experiment_dates: pd.DataFrame,
