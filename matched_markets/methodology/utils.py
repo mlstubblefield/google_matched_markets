@@ -256,7 +256,7 @@ def default_geo_assignment(geo_level_time_series: pd.DataFrame,
   missing_geos = list(
       set(geo_level_time_series['geo']) - set(geo_eligibility['geo']))
 
-  pd.concat([geo_eligibility, pd.DataFrame({
+  return pd.concat([geo_eligibility, pd.DataFrame({
       'geo': missing_geos,
       'control': 1,
       'treatment': 1,
